@@ -63,6 +63,7 @@ function LoginPage() {
       {/* Form Column */}
       <div className="flex flex-col justify-between p-6 sm:p-12 lg:p-16">
 
+        {/* Logo and Register Link */}
         <div className="flex items-center justify-between">
           <Link
             to="/login"
@@ -82,7 +83,9 @@ function LoginPage() {
           </Link>
         </div>
 
+        {/* Login Form */}
         <div className="w-full max-w-md mx-auto my-12">
+
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
             Sign in to your workspace
           </h1>
@@ -93,12 +96,14 @@ function LoginPage() {
 
           <form onSubmit={handleSubmit} className="mt-8 space-y-4">
 
+            {/* Error Message */}
             {error && (
               <div className="px-3.5 py-2.5 rounded-lg bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900 text-xs text-red-700 dark:text-red-300">
                 {error}
               </div>
             )}
 
+            {/* Email */}
             <div>
               <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1.5">
                 Work Email
@@ -110,10 +115,12 @@ function LoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="name@company.com"
                 autoComplete="email"
+                required
                 className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-600"
               />
             </div>
 
+            {/* Password */}
             <div>
               <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1.5">
                 Password
@@ -126,6 +133,7 @@ function LoginPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
                   autoComplete="current-password"
+                  required
                   className="w-full pl-3.5 pr-10 py-2.5 text-sm rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-600"
                 />
 
@@ -144,6 +152,7 @@ function LoginPage() {
               </div>
             </div>
 
+            {/* Sign In Button */}
             <button
               type="submit"
               disabled={submitting}
@@ -154,6 +163,7 @@ function LoginPage() {
             </button>
           </form>
 
+          {/* Demo Login */}
           <div className="mt-6 pt-6 border-t border-slate-200 dark:border-slate-800">
             <button
               type="button"
@@ -161,25 +171,31 @@ function LoginPage() {
               onClick={handleDemoSignIn}
               className="w-full py-2.5 px-4 text-xs font-medium rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
             >
-              Continue with Demo Account (alex@taskline.io)
+              {submitting
+                ? "Please wait..."
+                : "Continue with Demo Account (alex@taskline.io)"}
             </button>
           </div>
         </div>
 
+        {/* Footer */}
         <p className="text-xs text-slate-400">
           Taskline Collaborative Kanban Platform
         </p>
       </div>
 
       {/* Showcase Image Column */}
-      <div className="hidden lg:block relative bg-slate-100 dark:bg-slate-900 overflow-hidden">
+      <div className="hidden lg:block relative min-h-screen bg-slate-100 dark:bg-slate-900 overflow-hidden">
+
         <img
           src={authImage}
           alt="Minimalist architectural workspace"
-          className="w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
         />
 
+        {/* Image Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/20 to-transparent flex flex-col justify-end p-12 text-white">
+
           <p className="text-xl font-semibold max-w-md leading-snug">
             Structured boards, clear ownership, and real-time collaboration without the noise.
           </p>
@@ -187,6 +203,7 @@ function LoginPage() {
           <p className="mt-2 text-sm text-slate-200">
             Organize engineering roadmaps, design critiques, and sprint deliverables in one place.
           </p>
+
         </div>
       </div>
 

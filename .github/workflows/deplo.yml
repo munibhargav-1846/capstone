@@ -38,6 +38,9 @@ jobs:
           VITE_API_URL: ${{ vars.VITE_API_URL }}
           VITE_SOCKET_URL: ${{ vars.VITE_SOCKET_URL }}
 
+      - name: Add SPA routing fallback
+        run: cp dist/index.html dist/404.html
+
       - name: Upload production build
         uses: actions/upload-pages-artifact@v3
         with:

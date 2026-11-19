@@ -34,7 +34,7 @@ function App() {
   return <ThemeProvider>
       <ToastProvider>
         <AuthProvider>
-          <BrowserRouter>
+          <BrowserRouter basename="/capstone">
             <Routes>
               <Route
     path="/login"
